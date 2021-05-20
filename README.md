@@ -1,2 +1,2 @@
-# ReactJs_SIde_Projects
+# ReactJs_Side_Projects
 Mix of all side projects
