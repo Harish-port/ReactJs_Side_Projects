@@ -1,10 +1,10 @@
 import "./App.css";
-import Login from "./auth/Login/Login";
+import CovidVaccines from './components/covidVaccines';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <CovidVaccines />
     </div>
   );
 }
