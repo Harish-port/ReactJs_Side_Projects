@@ -1,10 +1,10 @@
 import "./App.css";
-import CovidVaccines from './components/covidVaccines';
+import Home from "./components/Home/Home";
 
 function App() {
   return (
     <div className="App">
-      <CovidVaccines />
+      <Home />
     </div>
   );
 }
