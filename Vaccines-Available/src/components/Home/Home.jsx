@@ -20,7 +20,6 @@ export default function Home() {
       <div className="vaccine-generator">
         <h1>VACCINES AVAILABLE IN BANGALORE</h1>
         {console.log(vaccines)}
-        {console.log(vaccines)}
       </div>
     </div>
   );
