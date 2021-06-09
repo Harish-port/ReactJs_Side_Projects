@@ -1,12 +1,14 @@
 import "./App.css";
-import Feeder from "./components/Feeder/Feeder";
 import Home from "./components/Home/Home";
-import Selector from "./components/Selector/Selector";
+import SelectOption from "./components/SelectOption/SelectOption";
+import TableFeed from "./components/TableFeed/TableFeed";
 
 function App() {
   return (
     <div className="App"> 
       <Home />
+      <SelectOption/>
+      <TableFeed/>
     </div>
   );
 }
