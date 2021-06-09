@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import * as Utils from "../../services/ApiHelper";
 import "./Home.css";
 
 export default function Home() {
   const [vaccines, setVaccines] = useState([]);
   const fetchVaccines = async () => {
-    await axios.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=560079&date=22-05-2021").then((response=>{
-      const receivedData = response.data;
-      setVaccines(receivedData);
-     }))
+    const date = getTodayDate();
+    await Utils.getVaccineAvailability(date).then((result) => {
+      const recievedData = result.data;
+      setVaccines(recievedData);
+    });
   };
-
+  const getTodayDate = () => {
+    const today = new Date();
+    const date =
+      today.getDate() +
+      "-" +
+      parseInt(today.getMonth() + 1) +
+      "-" +
+      today.getFullYear();
+    return date;
+  };
   useEffect(() => {
     fetchVaccines();
   }, []);
@@ -18,8 +28,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="vaccine-generator">
-        <h1>VACCINES AVAILABLE IN BANGALORE</h1>
         {console.log(vaccines)}
+        <h1>CoWIN Vaccination Slot Availabilty</h1>
       </div>
     </div>
   );
