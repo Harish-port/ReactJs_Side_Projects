@@ -22,6 +22,9 @@ label {
 .custom-style:focus{
     outline: none;
 }
+.custom-style option{
+background-color: none;
+}
 .selector {
   width: 300px;
   height: 45px;

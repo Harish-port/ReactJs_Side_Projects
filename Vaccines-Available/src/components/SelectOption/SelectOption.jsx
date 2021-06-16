@@ -1,8 +1,9 @@
 import React from "react";
 import "./SelectOption.css";
 
-export default function SelectOption() {
+export default function SelectOption({states}) {
   return (
+
     <div className="wrapper">
         <div className="selector-one-row">
       <div>
