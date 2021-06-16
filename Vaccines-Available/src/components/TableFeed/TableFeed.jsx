@@ -5,7 +5,6 @@ export default function TableFeed() {
     return (
         <>
             <table>
-                <tr>
                 <th>
                     Sl.No
                 </th>
@@ -36,7 +35,7 @@ export default function TableFeed() {
                 <th>
                    Fees
                 </th>
-                </tr>
+                <tbody>
                 <tr>
                     <td>value</td>
 
@@ -56,6 +55,7 @@ export default function TableFeed() {
                     <td>value</td>
 
                 </tr>
+                </tbody>
             </table>
         </>
     )

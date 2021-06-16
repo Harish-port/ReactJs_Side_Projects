@@ -28,7 +28,6 @@ export default function Home() {
   return (
     <div className="container">
       <div className="vaccine-generator">
-        {console.log(vaccines)}
         <h2>CoWIN Vaccination Slot Availability</h2>
       </div>
     </div>
