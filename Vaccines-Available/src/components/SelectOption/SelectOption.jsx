@@ -1,9 +1,9 @@
 import React from "react";
 import "./SelectOption.css";
 import { useState, useEffect } from "react";
-import * as Utils from "../../services/ApiHelper";
+import * as Utils from "../../Services/ApiHelper";
 
-export default function SelectOption({ states }) {
+export const SelectOption=({ states })=> {
   const [selectedStateId, setSelectedStateId] = useState("");
   const [district, setDistrict] = useState([]);
 

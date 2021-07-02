@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import * as Utils from "../../services/ApiHelper";
+import * as Utils from '../../Services/ApiHelper';
 import "./Home.css";
 
-export default function Home() {
+export const Home= ()=> {
   const [vaccines, setVaccines] = useState([]);
   const fetchVaccines = async () => {
     const date = getTodayDate();

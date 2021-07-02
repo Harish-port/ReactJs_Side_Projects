@@ -1,13 +1,9 @@
 import "./App.css";
-import Home from "./components/Home/Home";
 import { useState ,useEffect} from "react";
-import SelectOption from "./components/SelectOption/SelectOption";
-import TableFeed from "./components/TableFeed/TableFeed";
-import * as Utils from "./services/ApiHelper";
-import axios from 'axios';
+import { Home,SelectOption,TableFeed } from "./components";
+import * as Utils from './Services/ApiHelper';
 
 function App() {
-  
   const [states, setStates] = useState([]);
   const getStates = async () => {
     await Utils.getStates().then((result) => {

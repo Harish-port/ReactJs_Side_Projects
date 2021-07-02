@@ -1,0 +1,1 @@
+export {TableFeed} from './TableFeed';

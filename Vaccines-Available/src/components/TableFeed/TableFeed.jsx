@@ -1,7 +1,7 @@
 import React from 'react'
 import './TableFeed.css';
 
-export default function TableFeed() {
+export const TableFeed=()=> {
     return (
         <>
             <table>
