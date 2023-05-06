@@ -6,16 +6,19 @@ import {
   selectedProduct,
   removeSelectedProduct,
   addSelectedProductToCart,
-  
+
 } from "../Redux/Actions/productActions";
 import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
- 
+  let getAllCartItems = useSelector((state) => state.cartAllItems);
+  console.log(getAllCartItems, "King");
+  console.log(product, "ahjr");
   const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
+
   const fetchProductDetail = async (id) => {
     const response = await axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -25,12 +28,33 @@ const ProductDetails = () => {
     dispatch(selectedProduct(response.data));
   };
 
+  const addItemsToCart = () => {
+    console.log(getAllCartItems, "getAllCartItems");
+debugger
+
+    dispatch(addSelectedProductToCart(product));
+    if (getAllCartItems.length > 0) {
+      getAllCartItems.forEach((item) => {
+        return item.quantity = 1;
+      })
+    } else {
+      console.log("joke");
+    }
+    // console.log(test, "tes");
+    // if (product.id !== -1) {
+    //   dispatch(addSelectedProductToCart(getAllCartItems[getAllCartItems.id].quantity + 1))
+    // } else {
+    //   dispatch(addSelectedProductToCart(getAllCartItems))
+    // }
+  }
+
   useEffect(() => {
     if (productId && productId !== "") fetchProductDetail(productId);
     // return () => {
     //   dispatch(removeSelectedProduct());
     // };
   }, [productId]);
+
   return (
     <div className="ui grid container">
       {Object.keys(product).length === 0 ? (
@@ -50,14 +74,14 @@ const ProductDetails = () => {
                 </h2>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>
-                <Link to={`/cart/${productId}`}>
-                <div className="ui vertical animated button" tabIndex="0" onClick={()=> dispatch(addSelectedProductToCart(product))}>
+                {/* <Link to={`/cart/${productId}`}> */}
+                <div className="ui vertical animated button" tabIndex="0" onClick={addItemsToCart}>
                   <div className="hidden content">
                     <i className="shop icon"></i>
                   </div>
                   <div className="visible content" >Add to Cart</div>
                 </div>
-                </Link>
+                {/* </Link> */}
                 <div className="ui vertical animated button button-buy-now" tabIndex="0">
                   <div className="hidden content">
                     <i className="shop icon"></i>

@@ -6,7 +6,6 @@ import ProductDetail from './Containers/ProductDetail';
 import AddedCartItems from './Containers/AddedCartItems';
 
 function App() {
-  console.log("once here");
   return (
     <div className="App">
       <Router>
