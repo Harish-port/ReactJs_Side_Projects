@@ -3,8 +3,10 @@ import Header from './Containers/Header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductListing from './Containers/ProductListing';
 import ProductDetail from './Containers/ProductDetail';
+import AddedCartItems from './Containers/AddedCartItems';
 
 function App() {
+  console.log("once here");
   return (
     <div className="App">
       <Router>
@@ -12,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<ProductListing/>} />
           <Route path='/product/:productId' exact element={<ProductDetail/>} />
+          <Route path='/cart/:productId' exact element={<AddedCartItems/>} />
           <Route>404 Not Found!</Route>
         </Routes>
       </Router>
