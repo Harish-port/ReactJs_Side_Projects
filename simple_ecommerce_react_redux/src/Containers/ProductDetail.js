@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +8,11 @@ import {
   addSelectedProductToCart,
 
 } from "../Redux/Actions/productActions";
-import { Link } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 const ProductDetails = () => {
   const { productId } = useParams();
+  const [cartItems, setCartItems] = useState([]);
   let product = useSelector((state) => state.product);
   let getAllCartItems = useSelector((state) => state.cartAllItems);
   console.log(getAllCartItems, "King");
@@ -27,36 +28,32 @@ const ProductDetails = () => {
       });
     dispatch(selectedProduct(response.data));
   };
-
   const addItemsToCart = () => {
-    console.log(getAllCartItems, "getAllCartItems");
-debugger
-
-    dispatch(addSelectedProductToCart(product));
-    if (getAllCartItems.length > 0) {
-      getAllCartItems.forEach((item) => {
-        return item.quantity = 1;
-      })
+    let selectedProductList;
+    if (product.quantity) {
+      product.quantity += 1;
+      product.totalPrice = product.price * product.quantity;
+      selectedProductList = product;
     } else {
-      console.log("joke");
+      product.quantity = 1;
+      product.totalPrice = product.price;
+      selectedProductList =product;
     }
-    // console.log(test, "tes");
-    // if (product.id !== -1) {
-    //   dispatch(addSelectedProductToCart(getAllCartItems[getAllCartItems.id].quantity + 1))
-    // } else {
-    //   dispatch(addSelectedProductToCart(getAllCartItems))
-    // }
+    dispatch(addSelectedProductToCart(selectedProductList));
+    // <Navigate to={`/cart/${productId}`} />
+    console.log(selectedProductList, "selectedProductList");
   }
 
   useEffect(() => {
     if (productId && productId !== "") fetchProductDetail(productId);
-    // return () => {
-    //   dispatch(removeSelectedProduct());
-    // };
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
   }, [productId]);
 
   return (
     <div className="ui grid container">
+      {console.log(cartItems, "cartItems1111")}
       {Object.keys(product).length === 0 ? (
         <div>...Loading</div>
       ) : (
@@ -74,7 +71,7 @@ debugger
                 </h2>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>
-                {/* <Link to={`/cart/${productId}`}> */}
+                {/* <Link to={`/cart/${productId}`} > */}
                 <div className="ui vertical animated button" tabIndex="0" onClick={addItemsToCart}>
                   <div className="hidden content">
                     <i className="shop icon"></i>
