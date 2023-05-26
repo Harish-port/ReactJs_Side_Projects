@@ -1,5 +1,6 @@
-export interface Todo{
-    id:number;
-    todo:string;
-    isDone:boolean;
+import React, { useReducer } from 'react'
+export interface Todo {
+    id: number;
+    todo: string;
+    isDone: boolean;
 }
