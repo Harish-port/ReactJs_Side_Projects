@@ -1,0 +1,10 @@
+@import './styles/globals.scss';
+*{
+margin: 0;
+padding: 0;    
+}
+
+.chat-section-container {
+    display: flex;
+    background-color: #F1F1F1;
+}
