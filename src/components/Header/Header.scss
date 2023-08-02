@@ -1,0 +1,41 @@
+// @import "../../styles/themes/variables";
+
+
+.header-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    // position: fixed;
+    height: 72px;
+    width: 100%;
+    gap: 16px;
+    background-color: var(--da-header);
+
+    p {
+        font-family: PPNeueMachina;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0em;
+        text-align: left;
+        color: white;
+        width: 172px;
+        height: 24px;
+        margin-top: 24px;
+        margin-left: 20px;
+        line-height: 24px;
+        cursor: pointer;
+    }
+
+    .icon-section {
+        margin-left: auto;
+
+        img {
+            margin: 28px 16px 0px 0px;
+            cursor: pointer;
+            width: 19.5px;
+            height: 19.5px;
+            margin-top: 28px;
+        }
+    }
+
+}
