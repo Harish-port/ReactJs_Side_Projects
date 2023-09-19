@@ -5,17 +5,18 @@ import { useDispatch } from "react-redux";
 import axios from 'axios';
 import { CryptoInfo } from './models/Crypto';
 import { setCrypto } from './Redux/Actions/cryptoActions';
+import TableView from './Components/Table/TableView';
+
 function App() {
   const dispatch = useDispatch();
-
   let response = () => {
-    axios.get<CryptoInfo[]>('https://data.binance.com/api/v3/ticker/24hr').then((res) => {
+    axios.get<CryptoInfo[]>('https://api.coingecko.com/api/v3/coins/').then((res) => {
+      console.log(res.data, "Res");
       dispatch(setCrypto(res.data));
     }).catch((error) => {
       console.log(error, "error");
     })
   }
-
   useEffect(() => {
     response();
   }, [response])
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <TableView/>
     </div>
   );
 }

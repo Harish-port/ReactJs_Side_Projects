@@ -10,6 +10,10 @@ header {
     a {
         color: white;
         text-decoration: none;
+
+        &:hover {
+            color: purple
+        }
     }
 
     .header-container {
@@ -24,6 +28,10 @@ header {
             font-weight: bold;
             font-size: 2rem;
             cursor: pointer;
+
+            &:hover {
+                color: purple
+            }
         }
     }
 
@@ -31,5 +39,13 @@ header {
         display: flex;
         gap: 2rem;
         color: white;
+
+        svg {
+            cursor: pointer;
+
+            &:hover {
+                color: purple
+            }
+        }
     }
 }
