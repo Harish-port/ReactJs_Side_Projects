@@ -1,0 +1,35 @@
+header {
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 120rem;
+    padding: 3rem 2rem;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .header-container {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        li {
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+
+    .header-icons {
+        display: flex;
+        gap: 2rem;
+        color: white;
+    }
+}
