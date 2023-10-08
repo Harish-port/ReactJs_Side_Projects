@@ -114,10 +114,12 @@ export interface CryptoInfo {
 export interface CryptoState {
     crypto: object[]
 }
+
 export type ActionType = {
     type: string,
     payload: object[]
 }
+
 export interface globalState {
     allCryptoItems: {
         crypto: CryptoInfo[]
