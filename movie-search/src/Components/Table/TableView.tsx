@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './TableView.scss'
+import "./TableView.scss";
 
 export default function BasicTable() {
   return (
@@ -10,9 +10,7 @@ export default function BasicTable() {
         <p>24h Change</p>
         <p>Market Cap</p>
       </div>
-      <div className="market-content__coin-list__row">
-
-      </div>
+      <div className="market-content__coin-list__row"></div>
     </div>
   );
-}
+} 
