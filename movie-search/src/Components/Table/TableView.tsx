@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import "./TableView.scss";
 import { useSelector } from "react-redux";
-
-export default function BasicTable() {
-  const tableData = useSelector<RootState>(
-    (state:RootState) => state.allCryptoItems.crypto
+export default function TableView() {
+  const tableData = useSelector(
+    (state: RootState) => state.allCryptoItems.crypto
   );
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 5;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = tableData.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(tableData.length / recordsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
   console.log(tableData, "table");
 
+  const changeCPage = (number: number) => {
+    console.log(number);
+  };
   return (
     <div className="table-container">
       <h2>Market Update</h2>
@@ -19,26 +29,43 @@ export default function BasicTable() {
           <p>Market Cap</p>
         </div>
         <div className="market-content__coin-list__row">
-          {
-            tableData.map((item)=>(
-              <div>
-                      
-              </div>
-            ))
-          }
-          <a href="#">
-            <span>
-              <img
-                src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
-                alt="Bitcoin"
-              />{" "}
-              Bitcoin
-            </span>
-            <p>$ 27160.00</p>
-            <p className="slider-coin__price red-text">$ 27160.00</p>
-            <p>$ 27160.00</p>
-          </a>
+          {records.map((item: any) => (
+            <a href="#">
+              <span>
+                <img src={item.image.small} alt="Bitcoin" /> {item.name}
+              </span>
+              <p>$ {item.market_data.current_price.usd}</p>
+              <p
+                className={
+                  "slider-coin__price " +
+                  (Math.sign(
+                    item.market_data
+                      .market_cap_change_percentage_24h_in_currency.usd
+                  ) === 1
+                    ? "green-text"
+                    : "red-text")
+                }
+              >
+                {" "}
+                {item.market_data.market_cap_change_percentage_24h_in_currency.usd.toFixed(
+                  2
+                )}{" "}
+                %
+              </p>
+              <p>$ {item.market_data.market_cap.usd.toLocaleString()}</p>
+            </a>
+          ))}
         </div>
+      </div>
+      <div className="pagination">
+        {numbers.map((number, i) => (
+          <button
+            className={`page-item ${currentPage === number ? "active" : " "}`}
+            key={i}
+          >
+            {number}
+          </button>
+        ))}
       </div>
     </div>
   );

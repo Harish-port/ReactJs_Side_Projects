@@ -16,7 +16,7 @@
     width: 100%;
     .market-content__coin-list__top {
       grid-gap: 2rem;
-      background: linear-gradient(25deg,#2600fc,#ff00ea);
+      background: linear-gradient(25deg, #2600fc, #ff00ea);
       border-radius: 8px 8px 0 0;
       color: #f3f2f4;
       display: grid;
@@ -61,10 +61,28 @@
             width: 5rem;
           }
         }
-        .red-text{
-          color: red!important;
+        .red-text {
+          color: red !important;
+        }
+        .green-text {
+          color: #0ecb81 !important;
         }
       }
+    }
+  }
+  .pagination {
+    align-items: center;
+    display: flex;
+    gap: 1.3rem;
+    justify-content: center;
+    margin-top: 5rem;
+    button {
+      background-color: #f3f2f4 !important;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 2rem;
+      height: 5rem;
+      width: 5rem;
     }
   }
 }

@@ -6,7 +6,6 @@ import axios from 'axios';
 import { CryptoInfo } from './models/Crypto';
 import { setCrypto } from './Redux/Actions/cryptoActions';
 import TableView from './Components/Table/TableView';
-import BasicTable from './Components/Table/TableView';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BasicTable/>
+      <TableView/>
     </div>
   );
 }
