@@ -7,7 +7,7 @@ function Header() {
     // const testting = useSelector((state: globalState) => state.allCryptoItems.crypto);
     return (
         <header>
-            <a href="">Coin</a>
+            <a href="">COINDom</a>
             <ul className='header-container'>
                 <li>Home</li>
                 <li>Market</li>

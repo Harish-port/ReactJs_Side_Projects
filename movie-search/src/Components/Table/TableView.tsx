@@ -6,7 +6,7 @@ export default function TableView() {
     (state: RootState) => state.allCryptoItems.crypto
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 5;
+  const recordsPerPage = 6;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = tableData.slice(firstIndex, lastIndex);
@@ -16,7 +16,7 @@ export default function TableView() {
   console.log(tableData, "table");
 
   const changeCPage = (number: number) => {
-    console.log(number);
+    setCurrentPage(number);
   };
   return (
     <div className="table-container">
@@ -62,6 +62,7 @@ export default function TableView() {
           <button
             className={`page-item ${currentPage === number ? "active" : " "}`}
             key={i}
+            onClick={()=>changeCPage(number)}
           >
             {number}
           </button>
