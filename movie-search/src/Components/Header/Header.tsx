@@ -4,6 +4,9 @@ function Header() {
   return (
     <header id="home">
       <a href="#a">COINDom</a>
+      <label htmlFor="" className="icons">
+        <i className="bx bx-menu"></i>
+      </label>
       <ul className="header-container">
         <li>
           <a href="#home">Home</a>
