@@ -7,10 +7,9 @@ declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
-  export type RootState = ReturnType<typeof store.getState>;
 }
 
-const saveState = (state: EmptyObject | globalState) => {
+const saveState = (state:  globalState) => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem("state", serializedState);

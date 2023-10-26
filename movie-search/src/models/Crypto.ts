@@ -112,7 +112,7 @@ export interface CryptoInfo {
 }
 
 export interface CryptoState {
-    crypto: object[]
+    crypto: CryptoInfo[]
 }
 
 export type ActionType = {
@@ -125,4 +125,3 @@ export interface globalState {
         crypto: CryptoInfo[]
     }
 }
-
