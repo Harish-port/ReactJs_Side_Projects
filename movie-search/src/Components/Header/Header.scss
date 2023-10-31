@@ -1,51 +1,57 @@
-header {
+.header-wrapper {
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: inherit;
+  background: #130749ff;
+  z-index: 1;
+  #header {
     align-items: center;
     display: flex;
     font-size: 2rem;
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: 120rem;
-    padding: 3rem 2rem;
-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 3rem 8rem;
     a {
-        color: white;
-        text-decoration: none;
+      color: white;
+      text-decoration: none;
 
-        &:hover {
-            color: purple
-        }
+      &:hover {
+        color: purple;
+      }
     }
 
     .header-container {
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
 
-        li {
-            color: white;
-            font-weight: bold;
-            font-size: 2rem;
-            cursor: pointer;
+      li {
+        color: white;
+        font-weight: bold;
+        font-size: 2rem;
+        cursor: pointer;
 
-            &:hover {
-                color: purple
-            }
+        &:hover {
+          color: purple;
         }
+      }
     }
 
     .header-icons {
-        display: flex;
-        gap: 2rem;
-        color: white;
+      display: flex;
+      gap: 2rem;
+      color: white;
 
-        svg {
-            cursor: pointer;
+      svg {
+        cursor: pointer;
 
-            &:hover {
-                color: purple
-            }
+        &:hover {
+          color: purple;
         }
+      }
     }
+  }
 }
